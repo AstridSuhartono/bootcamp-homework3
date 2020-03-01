@@ -3,14 +3,6 @@ var lowercase = "abcdefghijklmnopqrstuvwxyz",
   uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
   numbers = "0123456789",
   specialChars = "!@#$%^&*()_+~`|}{[]:;?><,./-=",
-  /* lowercaseInput = document.getElementById("lowercase"),
-  uppercaseInput = document.getElementById("uppercase"),
-  punctuationInput = document.getElementById("punctuation"),
-  numbersInput = document.getElementById("numbers"),
-  lengthInput = document.getElementById("length"),
-  passwordFeild = document.getElementById("pass-field"),
-  generateButton = document.getElementById("generate"),
-  copyButton = document.getElementById("copy"), */
   confirmLowercase,
   confirmUppercase,
   confirmSpecialChar,
@@ -24,10 +16,10 @@ var lowercase = "abcdefghijklmnopqrstuvwxyz",
     passwordCharSet ="";
 
     //set the length of the password and validate the length input
-    passwordLength = Number(prompt("Please enter you password length between 8 - 128 characters"))
-    while( passwordLength < 8 || passwordLength > 128){
-      alert("Not valid, please enter valid number and length")
-      passwordLength = Number(prompt("Please enter you password length between 8 - 128 characters"))
+    passwordLength = prompt("Please enter your password length between 8 - 128 characters")
+    while( isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128){
+      alert("Not valid, please enter valid number and length");
+      passwordLength = prompt("Please enter your password length between 8 - 128 characters");
     }
 
     //confirming inclusion of lowercase characters into the password

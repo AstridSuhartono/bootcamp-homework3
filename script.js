@@ -1,8 +1,8 @@
-var clipboard = new Clipboard('.copy')
+
 var lowercase = "abcdefghijklmnopqrstuvwxyz",
   uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
   numbers = "0123456789",
-  punctuation = "!@#$%^&*()_+~`|}{[]:;?><,./-=",
+  specialChars = "!@#$%^&*()_+~`|}{[]:;?><,./-=",
   /* lowercaseInput = document.getElementById("lowercase"),
   uppercaseInput = document.getElementById("uppercase"),
   punctuationInput = document.getElementById("punctuation"),
@@ -14,8 +14,7 @@ var lowercase = "abcdefghijklmnopqrstuvwxyz",
   confirmLowercase,
   confirmUppercase,
   confirmSpecialChar,
-  confirmNumber,
-  confirmLength,
+  confirmNumbers,
   passwordLength,
   userPassword,
   passwordCharSet;
@@ -23,15 +22,32 @@ var lowercase = "abcdefghijklmnopqrstuvwxyz",
   function generatePassword(){
     userPassword = "";
     passwordCharSet ="";
-    //set the length of the password and validate the length input
-    confirmlength = Number(prompt("Please enter you password length between 8 - 128 characters"))
-    while (confirmlength != isNaN || confirmLength < 8 || confirmLength > 128 || confirmLength == null){
-      alert("Not valid, please enter valid number and length")
-      confirmlength = Number(prompt("Please enter you password length between 8 - 128 characters"))
-    }
-    //
-    confirmLowercase = confirm("Include lowercase characters?")
 
+    //set the length of the password and validate the length input
+    passwordLength = Number(prompt("Please enter you password length between 8 - 128 characters"))
+    while( passwordLength < 8 || passwordLength > 128){
+      alert("Not valid, please enter valid number and length")
+      passwordLength = Number(prompt("Please enter you password length between 8 - 128 characters"))
+    }
+
+    //confirming inclusion of lowercase characters into the password
+    confirmLowercase = confirm("Include lowercase characters?")
+    if(confirmLowercase){passwordCharSet += lowercase;}
+    //confirming inclusion of uppercase characters into the password
+    confirmUppercase = confirm("Include uppercase characters?")
+    if(confirmUppercase){passwordCharSet += uppercase;}
+    //confirming inclusion of special characters into the password
+    confirmSpecialChar = confirm("Include special characters?")
+    if(confirmSpecialChar){passwordCharSet += specialChars}
+    //confirming inclusion of number characters into the password
+    confirmNumbers = confirm("Include numbers characters?")
+    if(confirmNumbers){passwordCharSet += numbers}
+
+    // loop to generate the password depends on the character sets that the user choose
+    for(let i = 0; i < passwordLength; i++){
+      userPassword += passwordCharSet.charAt(Math.floor(Math.random() * passwordCharSet.length));
+    }
+    return userPassword;
   }
 
   // Assignment Code

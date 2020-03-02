@@ -42,6 +42,10 @@ header {
   padding: 30px 40px;
 }
 
+.card-header {
+  text-align: center;
+}
+
 .card-header::after {
   content: " ";
   display: block;
@@ -118,7 +122,18 @@ button[disabled] {
   overflow: hidden;
 }
 
-@media (max-width: 690px) {
+@media only screen and (max-width: 992px){
+  .btn {
+    font-size: 1.2rem;
+    margin: 16px 16px 16px 16px;
+    padding: 10px 15px;
+  }
+
+  #password {
+    font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 768px) {
   .btn {
     font-size: 1rem;
     margin: 16px 0px 0px 0px;
@@ -130,7 +145,7 @@ button[disabled] {
   }
 }
 
-@media (max-width: 500px) {
+@media only screen and (max-width: 600) {
   .btn {
     font-size: 0.8rem;
   }

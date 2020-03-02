@@ -1,4 +1,4 @@
-//declare and initialise global variables
+//declare and initialise variables
 var lowercase = "abcdefghijklmnopqrstuvwxyz",
   uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
   numbers = "0123456789",
@@ -11,13 +11,16 @@ var lowercase = "abcdefghijklmnopqrstuvwxyz",
   userPassword,
   passwordCharSet;
 
-  //function to generate user password
+//function to generate user password
 function generatePassword(){
   userPassword = "";
   passwordCharSet ="";
 
   //set the length of the password and validate the length input
   passwordLength = prompt("Please enter your password length between 8 - 128 characters")
+  if(passwordLength === null){
+    return;
+  }
   while( isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128){
     alert("Not valid, please enter valid number and length");
     passwordLength = prompt("Please enter your password length between 8 - 128 characters");
@@ -43,12 +46,12 @@ function generatePassword(){
 
   //validate user to choose at least one characters set option
   if(userPassword == ""){
-    alert("Please select at least one option to be included in the password")
+    alert("Please select at least one option to be included in the password!")
   } 
   else{return userPassword;}
 }
 
-  // Assignment Code
+// Assignment Code
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input

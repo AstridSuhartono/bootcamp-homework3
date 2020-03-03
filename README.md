@@ -11,9 +11,10 @@ A simple web application to generate a random password based on user-selected cr
 - https://github.com/AstridSuhartono/bootcamp-homework3
 - https://astridsuhartono.github.io/bootcamp-homework3/
 
-### Screenshot
+### Video Recording
 
-
+Click the following link to see the video demo:
+https://drive.google.com/file/d/1ftLGLc5vkxhgnJqXCPds3OQfgVi4Gu4K/view
 
 ### Build Instructions
 

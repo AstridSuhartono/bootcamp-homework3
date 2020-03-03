@@ -19,12 +19,13 @@ function generatePassword(){
   //set the length of the password and validate the length input
   passwordLength = prompt("Please enter your password length between 8 - 128 characters")
   if(passwordLength === null){
-    return;
+    return passwordText.value = "Your Secure Password";
   }
   while( isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128){
     alert("Not valid, please enter valid number and length");
     passwordLength = prompt("Please enter your password length between 8 - 128 characters");
   }
+  
 
   //confirming inclusion of lowercase characters into the password
   confirmLowercase = confirm("Include lowercase characters?")
@@ -47,6 +48,7 @@ function generatePassword(){
   //validate user to choose at least one characters set option
   if(userPassword == ""){
     alert("Please select at least one option to be included in the password!")
+    passwordText.value = "Your Secure Password"
   } 
   else{return userPassword;}
 }
